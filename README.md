@@ -78,4 +78,11 @@ make进行编译如果出错查看是否安装好gcc环境
 ls查看文件夹内容    
 安装模块驱动前先加载lib80211和cfg80211 命令是modprobe lib80211 和 modprobe cfg80211 这两个模块是linux的802.11无线网络api     
 insmod ./rtl8852auko 载入驱动模块    
-最后用lsmod查看模块是否安装成功    
+最后用lsmod查看模块是否安装成功  
+
+
+树莓派安装驱动   
+git建立源码仓库   
+如果提示failed to create hard link '5.15.32-v7+/build  
+运行sudo apt install raspberrypi-kernel-headers进入/lib/modules 把拥有build的文件夹软链接到5.15.32-v7+  
+在make编译命令前加入ARCH=arm 
