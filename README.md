@@ -70,3 +70,12 @@ In the MOK managerment screen, select reset MOK list
 Reboot then retry from the step make sign-install
 
 Larry Finger
+
+
+安装方法
+git建立源码仓库
+make进行编译如果出错查看是否安装好gcc环境
+ls查看文件夹内容
+安装模块驱动前先加载lib80211和cfg80211 命令是modprobe lib80211 和 modprobe cfg80211 这两个模块是linux的802.11无线网络api
+insmod ./rtl8852auko 载入驱动模块
+最后用lsmod查看模块是否安装成功
