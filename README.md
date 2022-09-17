@@ -81,6 +81,15 @@ insmod ./rtl8852auko 载入驱动模块
 最后用lsmod查看模块是否安装成功  
 
 
+出现cc1: some warnings being treated as errors  
+根据网上文章，在驱动的Makefile里，如下添加CFLAGS或者EXTRA_FLAGS，可以去掉这个错误。实际测试，没有作用。  
+CFLAGS += -Wno-error=date-time -Wno-date-time   
+EXTRA_FLAGS += -Wno-error=date-time -Wno-date-time   
+后来研究后，在驱动的Makefile里增加“ccflags-y”，可以去掉这个错误。  
+ccflags-y += -Wno-error=date-time -Wno-date-time  
+后来能编译成功。  
+
+
 树莓派安装驱动   
 git建立源码仓库   
 如果提示failed to create hard link '5.15.32-v7+/build  
